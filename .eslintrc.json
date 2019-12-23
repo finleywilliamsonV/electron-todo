@@ -17,6 +17,8 @@
     "rules": {
         "linebreak-style": ["error", "windows"],
         "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}],
-        "semi": ["error", "never"]
+        "semi": ["error", "never"],
+        "comma-dangle": 0,
+        "indent": ["error", 4]
     }
 }
