@@ -4,7 +4,7 @@ const Window = require('./Window')
 
 const main = () => {
     const mainWindow = new Window({
-        file: 'index.html'
+        file: './renderer/index.html'
     })
 }
 
