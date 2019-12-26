@@ -2,8 +2,8 @@ const path = require('path')
 const { app, ipcMain } = require('electron')
 
 // our constructors
-const Window = require('./Window')
-const DataStore = require('./DataStore')
+const Window = require('./js/Window')
+const DataStore = require('./js/DataStore')
 
 // create a new todo store named 'Todos Main'
 const todosData = new DataStore({ name: 'Todos Main' })
@@ -30,7 +30,7 @@ const main = () => {
         if (!addTodoWindow) {
             // create a new addTodoWindow
             addTodoWindow = new Window({
-                file: path.join('renderer', 'add.html'),
+                file: path.join('renderer', 'add-todos', 'add.html'),
                 width: 400,
                 height: 400,
                 // close with the main parent window
