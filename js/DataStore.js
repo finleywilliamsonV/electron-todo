@@ -35,6 +35,13 @@ class DataStore extends Store {
 
         return this.saveTodos()
     }
+
+    resetTodos() {
+        // reset all todos
+        this.todos = []
+
+        return this.saveTodos()
+    }
 }
 
 module.exports = DataStore

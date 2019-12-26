@@ -8,11 +8,17 @@ const DataStore = require('./js/DataStore')
 // create a new todo store named 'Todos Main'
 const todosData = new DataStore({ name: 'Todos Main' })
 
+// for adding the custom main menu
+const buildMainMenu = require('./js/menus/main-menu')
+
 const main = () => {
     // todo list window
     const mainWindow = new Window({
         file: path.join('renderer', 'index.html')
     })
+
+    // add the new menu
+    buildMainMenu()
 
     // add todo window (initially does not exist)
     let addTodoWindow
@@ -44,18 +50,43 @@ const main = () => {
         }
     })
 
+    const sendUpdatedTodos = (updatedTodos) => {
+        mainWindow.send('todos', updatedTodos)
+    }
+
     // add-todo from addTodoWindow
     ipcMain.on('add-todo', (event, todo) => {
         const updatedTodos = todosData.addTodo(todo).todos
 
-        mainWindow.send('todos', updatedTodos)
+        sendUpdatedTodos(updatedTodos)
     })
 
     // delete-todo from todo list window
     ipcMain.on('delete-todo', (event, todo) => {
         const updatedTodos = todosData.deleteTodo(todo).todos
 
-        mainWindow.send('todos', updatedTodos)
+        sendUpdatedTodos(updatedTodos)
+    })
+
+    // reset todos list
+    app.on('reset-todos', () => {
+        const updatedTodos = todosData.resetTodos().todos
+
+        sendUpdatedTodos(updatedTodos)
+    })
+
+    // add placeholder todos
+    app.on('add-placeholder-todos', () => {
+        todosData.resetTodos()
+        todosData.addTodo('Walk the dog')
+        todosData.addTodo('Clean the dishes')
+        todosData.addTodo('Take out the trash')
+        todosData.addTodo('Go to the Gym')
+        todosData.addTodo('Fold laundry')
+        todosData.addTodo('Cook dinner')
+        const updatedTodos = todosData.addTodo('Cross off all my todos').todos
+
+        sendUpdatedTodos(updatedTodos)
     })
 }
 
