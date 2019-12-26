@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        
+        <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+        <meta http-equiv="X-Content-Security-Policy" content="default-src 'self'; script-src 'self'">
+    
+        <!-- Stylesheets -->
+        <link rel="stylesheet" href="../node_modules/spectre.css/dist/spectre.min.css">
+        <link rel="stylesheet" href="./styles.css">
+    
+        <title>Electron To-Do App</title>
+    </head>
+    
+    <body>
+    
+        <!-- Add Todo Window HTML -->
+        <div class="container">
+            <div class="columns">
+                <div class="column col-10">
+                    <form id="todoForm">
+                        <div class="form-group">
+                            <label for="add-input" class="form-label">To-Do</label>
+                            <input class="form-input" type="text" name="add-input" placeholder="I have to...">
+                        </div>
+
+                        <button class="btn">Add To-Do</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    
+    
+        <!-- You can also require other files to run in this process -->
+        <script src="./add.js"></script>
+    </body>
+    
+    </html>
