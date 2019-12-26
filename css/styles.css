@@ -1,3 +1,23 @@
 body {
     color: #5755d9;
 }
+
+#appTitle {
+    margin-top: 1em;
+}
+
+#todoList {
+    margin-right: 16px;
+}
+
+.todo-item-div {
+    border: 1px solid transparent;
+}
+
+.todo-item-div:hover {
+    border: 1px solid #5755d9;
+}
+
+.todo-item-div:nth-child(odd) {
+    background-color: #cbcaff;
+}

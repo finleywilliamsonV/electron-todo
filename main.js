@@ -32,7 +32,7 @@ const main = () => {
             addTodoWindow = new Window({
                 file: path.join('renderer', 'add-todos', 'add.html'),
                 width: 400,
-                height: 400,
+                height: 180,
                 // close with the main parent window
                 parent: mainWindow
             })
