@@ -4,7 +4,8 @@
     "description": "Electron todo app",
     "main": "main.js",
     "scripts": {
-        "start": "electron ."
+        "start": "electron .",
+        "dev": "electron . dev"
     },
     "repository": "https://github.com/finleywilliamsonV/electron-todo",
     "author": "finley.williamson@gmail.com",

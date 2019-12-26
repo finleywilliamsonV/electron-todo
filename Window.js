@@ -1,4 +1,6 @@
 const { BrowserWindow } = require('electron')
+// arguments from npm
+const { isDevMode } = require('./ArgsHandler')
 
 // default window settings
 const defaultProps = {
@@ -17,7 +19,11 @@ class Window extends BrowserWindow {
 
         // load the html and open devtools
         this.loadFile(file)
-        this.webContents.openDevTools()
+
+        // open dev tools if in dev mode
+        if (isDevMode) {
+            this.webContents.openDevTools()
+        }
 
         // gracefully show when ready to prevent flickering
         this.once('ready-to-show', () => {
