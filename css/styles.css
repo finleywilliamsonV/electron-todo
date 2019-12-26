@@ -21,3 +21,8 @@ body {
 .todo-item-div:nth-child(odd) {
     background-color: #cbcaff;
 }
+
+.todo-item {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}

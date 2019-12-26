@@ -4,3 +4,4 @@
 * Clone the repo, run "npm install"
 * Run Normally: "npm start"
 * Run with Dev Console: "npm run dev"
+* Build: "npm run dist"
